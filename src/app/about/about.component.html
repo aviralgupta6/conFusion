@@ -62,18 +62,11 @@
 
       </mat-list-item>
       <mat-list-item *ngFor="let lead of leaders">
-        <div>
-          <img class="circular-img" src="/assets/images/alberto.png">
-        </div>
-        <p mat-line>
-          <span> {{lead.name}} {{lead.abbr}}</span>
-        </p>
-        <p mat-line>
-          <span> {{lead.designation}}</span>
-        </p>
-        <p mat-line>
-          <span> {{lead.description}} </span>
-        </p>
+          <img class="circular-img" src={{lead.image}}>
+          <span mat-line> {{lead.name}} {{lead.abbr}}</span>
+          <span mat-line> {{lead.designation}}</span>
+          <span mat-line> {{lead.description}} </span>
+     
       </mat-list-item>
 
     </mat-list>
