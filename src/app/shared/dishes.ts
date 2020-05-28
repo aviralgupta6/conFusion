@@ -1,4 +1,4 @@
-import { Dish } from './dish';
+/*import { Dish } from './dish';
 
 export const DISHES: Dish[] = [
     {
@@ -171,3 +171,4 @@ export const DISHES: Dish[] = [
         ]
     }
 ];
+*/

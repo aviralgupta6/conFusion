@@ -1,11 +1,5 @@
-
-<div class="container"
-fxLayout="row"
-fxLayout.sm="column"
-fxLayout.xs="column"
-fxLayoutAlign.gt-md="space-around center"
-fxLayoutGap="10px" 
-fxLayoutGap.xs="0">
+<div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column"
+  fxLayoutAlign.gt-md="space-around center" fxLayoutGap="10px" fxLayoutGap.xs="0">
 
   <div fxFlex="40" *ngIf="dish">
     <mat-card>
@@ -14,7 +8,7 @@ fxLayoutGap.xs="0">
           <h3 *ngIf="dish">{{dish.name | uppercase}}</h3>
         </mat-card-title>
       </mat-card-header>
-      <img mat-card-image src={{dish.image}} alt={{dish.name}}>
+      <img mat-card-image src="{{BaseURL+ dish.image}}" alt={{dish.name}}>
       <mat-card-content>
         <p>{{dish.description}}
         </p>
@@ -35,7 +29,7 @@ fxLayoutGap.xs="0">
   <div fxFlex="40" *ngIf="dish">
     <mat-list>
       <mat-list-item>
-        <h2> Comments </h2>        
+        <h2> Comments </h2>
       </mat-list-item>
       <mat-list-item *ngFor="let comment of dish.comments">
         <p mat-line>
@@ -49,8 +43,34 @@ fxLayoutGap.xs="0">
         </p>
       </mat-list-item>
     </mat-list>
+    <div>
+      <p>{{ feedbackForm.value | json }} {{ feedbackForm.status | json }}</p>
+  
+      <form novalidate [formGroup]="feedbackForm" #fform="ngForm" (ngSubmit)="onSubmit()">
+        <p>
+          <mat-form-field class="full-width">
+            <input matInput formControlName="author" placeholder="Name" type="text" required>
+          </mat-form-field>
+        </p>
+        <table class="form-size">
+          <td>
+            <mat-slider min="1" max="5" thumbLabel tickInterval="1" formControlName="rating"></mat-slider>
+          </td>
+        </table>
+        <p>
+          <mat-form-field class="full-width">
+            <textarea matInput formControlName="comment" placeholder="Your Comment" required></textarea>
+          </mat-form-field>
+        </p>
+        <button type="submit" mat-button class="background-primary text-floral-white"
+          [disabled]="feedbackForm.invalid">Submit</button>
+      </form>
+    </div>
   </div>
   <div fxFlex [hidden]="dish">
-    <mat-spinner></mat-spinner><h4>Loading. . . Please Wait!</h4>
+    <mat-spinner></mat-spinner>
+    <h4>Loading. . . Please Wait!</h4>
   </div>
+
+  
 </div>

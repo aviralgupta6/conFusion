@@ -30,10 +30,11 @@ import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatSliderModule } from '@angular/material/slider';
+import { HttpClientModule} from '@angular/common/http';
+import { baseURL } from './shared/baseurl';
 
 
-
- 
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,14 +51,16 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatFormFieldModule, 
-    MatInputModule,
+    MatFormFieldModule,
+    HttpClientModule,
     MatSelectModule,
+    MatInputModule,
     MatProgressSpinnerModule,
     MatSlideToggleModule,
     MatCheckboxModule,
     MatGridListModule,
     MatCardModule,
+    MatSliderModule,
     MatButtonModule,
     AppRoutingModule,
     FlexLayoutModule,
@@ -69,7 +72,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   providers: [
     DishService,
     LeaderService,
-    PromotionService
+    PromotionService,
+    { provide: 'BaseURL', useValue: baseURL}
   ],
   entryComponents: [
     LoginComponent
