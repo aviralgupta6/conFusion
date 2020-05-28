@@ -32,6 +32,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
 import { HttpClientModule} from '@angular/common/http';
+import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
 import { baseURL } from './shared/baseurl';
 
 
@@ -72,6 +73,7 @@ import { baseURL } from './shared/baseurl';
   providers: [
     DishService,
     LeaderService,
+    ProcessHTTPMsgService,
     PromotionService,
     { provide: 'BaseURL', useValue: baseURL}
   ],
